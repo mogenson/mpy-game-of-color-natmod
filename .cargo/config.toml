@@ -1,0 +1,9 @@
+[build]
+target = "thumbv6m-none-eabi"
+
+[target.thumbv6m-none-eabi]
+rustflags = [
+    "-C", "target-cpu=cortex-m0plus",
+    "-C", "relocation-model=pic",     # position-independent code, required by mpy_ld
+    "-C", "code-model=small",
+]

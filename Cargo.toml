@@ -1,0 +1,17 @@
+[package]
+name = "my_module"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["staticlib"]   # produces libmy_module.a
+
+[profile.release]
+opt-level = "s"              # optimise for size
+lto = true
+codegen-units = 1
+panic = "abort"              # no unwinding runtime needed
+
+[dependencies]
+# no_std only — no alloc unless you wrap mp_malloc
+
