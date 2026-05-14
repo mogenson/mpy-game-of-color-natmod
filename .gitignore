@@ -1,1 +1,4 @@
 target/
+.mpy_ld_cache/
+build/
+my_module.mpy

@@ -4,6 +4,7 @@ pkgs.mkShell {
   buildInputs = [
     pkgs.gcc-arm-embedded
     (pkgs.python3.withPackages (ps: [
+      ps.ar
       ps.pyelftools
     ]))
   ];
