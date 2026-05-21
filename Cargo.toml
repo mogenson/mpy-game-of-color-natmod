@@ -1,17 +1,17 @@
 [package]
-name = "my_module"
+name = "factorial"
 version = "0.1.0"
 edition = "2021"
 
 [lib]
-crate-type = ["staticlib"]   # produces libmy_module.a
+crate-type = ["staticlib"]
 
 [profile.release]
-opt-level = "s"              # optimise for size
+opt-level = "s"
 lto = true
 codegen-units = 1
-panic = "abort"              # no unwinding runtime needed
+panic = "abort"
 
 [dependencies]
-# no_std only — no alloc unless you wrap mp_malloc
+ufmt =  { version = "0.2", default_features = false }
 

@@ -1,10 +1,10 @@
 MPY_DIR  := $(abspath ../micropython)
-MOD      := my_module
+MOD      := factorial
 ARCH     := armv6m
 
 SRC := glue.c
 
-RUST_LIB := $(abspath target/thumbv6m-none-eabi/release/libmy_module.a)
+RUST_LIB := $(abspath target/thumbv6m-none-eabi/release/lib$(MOD).a)
 
 MPY_LD_FLAGS += -l $(RUST_LIB)
 
@@ -12,9 +12,14 @@ include $(MPY_DIR)/py/dynruntime.mk
 
 build/glue.o: $(RUST_LIB)
 
-$(RUST_LIB): src/lib.rs Cargo.toml
+$(RUST_LIB): $(wildcard src/*.rs) Cargo.toml
 	cargo build --release
 
-clean:
+.PHONY: clean
 	cargo clean
 	rm -rf build
+	rm -rf .mpy_ld_cache
+	rm -f *.mpy
+
+upload: build/glue.o
+	mpremote fs cp build/$(MOD).native.mpy :/lib/$(MOD).mpy

@@ -13,6 +13,10 @@ static MP_DEFINE_CONST_FUN_OBJ_1(factorial_obj, py_factorial);
 mp_int_t mpy_obj_get_int(mp_obj_t obj) { return mp_obj_get_int(obj); }
 mp_obj_t mpy_obj_new_int(mp_int_t val) { return mp_obj_new_int(val); }
 
+const mp_print_t *mpy_get_plat_print(void) {
+    return &mp_plat_print;
+}
+
 // ── Module entry point ────────────────────────────────────────────────────────
 mp_obj_t mpy_init(mp_obj_fun_bc_t *self, size_t n_args, size_t n_kw, mp_obj_t *args) {
     MP_DYNRUNTIME_INIT_ENTRY
