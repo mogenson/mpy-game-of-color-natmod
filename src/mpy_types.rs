@@ -10,6 +10,12 @@ pub struct MpPrintT {
 }
 
 extern "C" {
+    pub fn mpy_call_function_n_kw(
+        fn_obj: MpObjT,
+        n_args: usize,
+        n_kw: usize,
+        args: *const MpObjT,
+    ) -> MpObjT;
     pub fn mpy_get_plat_print() -> *const MpPrintT;
     pub fn mpy_obj_get_int(obj: MpObjT) -> MpIntT;
     pub fn mpy_obj_new_int(val: MpIntT) -> MpObjT;

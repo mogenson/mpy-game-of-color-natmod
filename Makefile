@@ -23,3 +23,6 @@ $(RUST_LIB): $(wildcard src/*.rs) Cargo.toml
 
 upload: build/glue.o
 	mpremote fs cp build/$(MOD).native.mpy :/lib/$(MOD).mpy
+
+repl: build/glue.o
+	mpremote repl

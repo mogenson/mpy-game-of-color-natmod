@@ -13,5 +13,5 @@ codegen-units = 1
 panic = "abort"
 
 [dependencies]
-ufmt =  { version = "0.2", default_features = false }
+ufmt =  { version = "0.2", default-features = false }
 
