@@ -14,3 +14,7 @@ build/glue.o: $(RUST_LIB)
 
 $(RUST_LIB): src/lib.rs Cargo.toml
 	cargo build --release
+
+clean:
+	cargo clean
+	rm -rf build
