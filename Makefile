@@ -15,12 +15,6 @@ build/glue.o: $(RUST_LIB)
 $(RUST_LIB): $(wildcard src/*.rs) Cargo.toml
 	cargo build --release
 
-.PHONY: clean
-	cargo clean
-	rm -rf build
-	rm -rf .mpy_ld_cache
-	rm -f *.mpy
-
 upload: build/glue.o
 	mpremote fs cp build/$(MOD).native.mpy :/lib/$(MOD).mpy
 
