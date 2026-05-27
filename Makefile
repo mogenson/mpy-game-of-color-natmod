@@ -1,4 +1,4 @@
-MPY_DIR  := $(abspath ../micropython)
+MPY_DIR  ?= $(abspath ../micropython)
 MOD      := factorial
 ARCH     := armv6m
 
