@@ -3,6 +3,8 @@ use core::ffi::{c_char, c_void};
 pub type MpObjT = usize;
 pub type MpIntT = isize;
 
+pub const NONE: MpObjT = 0;
+
 #[repr(C)]
 pub struct MpPrintT {
     pub env: *mut c_void,

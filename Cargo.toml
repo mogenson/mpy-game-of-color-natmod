@@ -13,5 +13,9 @@ codegen-units = 1
 panic = "abort"
 
 [dependencies]
-ufmt =  { version = "0.2", default-features = false }
+heapless = "0.9"
+libm = "0.2"
+rand = { version = "0.10", default-features = false }
+rand_xorshift = "0.5"
+ufmt =  "0.2"
 
