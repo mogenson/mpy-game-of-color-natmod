@@ -11,7 +11,7 @@ pub struct MpPrintT {
     pub print_strn: unsafe extern "C" fn(env: *mut c_void, str: *const c_char, len: usize),
 }
 
-extern "C" {
+unsafe extern "C" {
     pub fn mpy_call_function_n_kw(
         fn_obj: MpObjT,
         n_args: usize,
