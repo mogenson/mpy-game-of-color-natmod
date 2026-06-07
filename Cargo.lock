@@ -9,17 +9,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1fd0f2584146f6f2ef48085050886acf353beff7305ebd1ae69500e27c67f64b"
 
 [[package]]
-name = "factorial"
-version = "0.1.0"
-dependencies = [
- "heapless",
- "libm",
- "rand",
- "rand_xorshift",
- "ufmt",
-]
-
-[[package]]
 name = "hash32"
 version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -135,3 +124,14 @@ name = "unicode-ident"
 version = "1.0.24"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e6e4313cd5fcd3dad5cafa179702e2b244f760991f45397d14d4ebf38247da75"
+
+[[package]]
+name = "universe"
+version = "0.1.0"
+dependencies = [
+ "heapless",
+ "libm",
+ "rand",
+ "rand_xorshift",
+ "ufmt",
+]

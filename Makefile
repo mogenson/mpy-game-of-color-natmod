@@ -1,5 +1,5 @@
 MPY_DIR  ?= $(abspath ../micropython)
-MOD      := factorial
+MOD      := universe
 ARCH     := armv6m
 
 SRC := glue.c

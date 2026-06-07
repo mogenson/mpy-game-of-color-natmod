@@ -79,7 +79,7 @@ To build the module:
     make
     ```
 
-This generates `build/factorial.native.mpy`.
+This generates `build/universe.native.mpy`.
 
 ### Deploying
 
@@ -87,7 +87,7 @@ To upload the compiled module to your MicroPython device:
 ```bash
 make upload
 ```
-This copies the module to `/lib/factorial.mpy` on the device.
+This copies the module to `/lib/universe.mpy` on the device.
 
 To enter a REPL session immediately after:
 ```bash
