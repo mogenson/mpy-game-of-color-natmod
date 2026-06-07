@@ -1,9 +1,9 @@
+#![allow(unused)]
+
 use core::ffi::{c_char, c_void};
 
-pub type MpObjT = usize;
-pub type MpIntT = isize;
-
-pub const NONE: MpObjT = 0;
+pub type MpObjT = usize; // mp_obj_t
+pub type MpIntT = isize; // mp_int_t
 
 #[repr(C)]
 pub struct MpPrintT {
@@ -21,4 +21,6 @@ extern "C" {
     pub fn mpy_get_plat_print() -> *const MpPrintT;
     pub fn mpy_obj_get_int(obj: MpObjT) -> MpIntT;
     pub fn mpy_obj_new_int(val: MpIntT) -> MpObjT;
+    pub fn mpy_obj_new_str(data: *const u8, len: usize) -> MpObjT;
+    pub fn mpy_const_none() -> MpObjT;
 }
