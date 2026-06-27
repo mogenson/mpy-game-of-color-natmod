@@ -3,7 +3,7 @@ let
   micropython-src = fetchgit {
     url = "https://github.com/micropython/micropython.git";
     rev = "v1.28.0"; # e0e9fbb17ed6fd06bb76e266ae554784c9c80804
-    hash = "sha256-mox9EbEX7MbNqg0eB1Wg/6bD39yMNts13GPR1BCzOOs=";
+    hash = "sha256-TggPhu7u00ULkYcKi3gGvSdgaUFF+CXVCov0nRSAK3g=";
     fetchSubmodules = false;
   };
 in

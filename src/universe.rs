@@ -128,19 +128,22 @@ impl Universe {
 
     pub fn step<F>(&mut self, mut draw: F)
     where
-        F: FnMut(usize, usize, u8, u8, u8),
+        F: FnMut(isize, isize, isize, isize, isize),
     {
         let next_page = (self.page + 1) % 2;
         for x in 0..WIDTH {
             for y in 0..HEIGHT {
                 let cell = self.next(x, y);
                 self.frame_buffer[next_page][x][y] = cell;
-                mpy_println!("cell x {} y {} hue {} light {}", x, y, cell.hue, cell.light);
+                // mpy_println!("cell x {} y {} hue {} light {}", x, y, cell.hue, cell.light);
                 let (r, g, b) = hue_to_rgb(cell.hue, cell.light);
-                mpy_println!("r {} g {} b {}", r, g, b);
-                draw(x, y, r, g, b);
+                // mpy_println!("r {} g {} b {}", r, g, b);
+                draw(x as isize, y as isize, r as isize, g as isize, b as isize);
             }
         }
+
+        // special meaning to update display
+        draw(-1, -1, 0, 0, 0);
 
         if self.born == self.died {
             self.stall_count += 1;

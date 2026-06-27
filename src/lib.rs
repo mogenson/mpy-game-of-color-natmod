@@ -29,8 +29,7 @@ pub unsafe extern "C" fn step(draw_fn: MpObjT) -> MpObjT {
     unsafe {
         if let Some(universe) = (*UNIVERSE.0.get()).as_mut() {
             universe.step(|x, y, r, g, b| {
-                let args_obj =
-                    [x, y, r as usize, g as usize, b as usize].map(|v| mpy_obj_new_int(v as isize));
+                let args_obj = [x, y, r, g, b].map(|v| mpy_obj_new_int(v));
                 mpy_call_function_n_kw(draw_fn, 5, 0, args_obj.as_ptr());
             });
         }
